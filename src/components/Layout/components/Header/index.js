@@ -51,6 +51,86 @@ const MENU_ITEMS = [
                     code: 'tl',
                     title: 'ThaiLand',
                 },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'sp',
+                    title: 'Spain',
+                },
+                {
+                    type: 'language',
+                    code: 'tl',
+                    title: 'ThaiLand',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'sp',
+                    title: 'Spain',
+                },
+                {
+                    type: 'language',
+                    code: 'tl',
+                    title: 'ThaiLand',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'sp',
+                    title: 'Spain',
+                },
+                {
+                    type: 'language',
+                    code: 'tl',
+                    title: 'ThaiLand',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'sp',
+                    title: 'Spain',
+                },
+                {
+                    type: 'language',
+                    code: 'tl',
+                    title: 'ThaiLand',
+                },
             ],
         },
     },
