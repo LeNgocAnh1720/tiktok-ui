@@ -40,6 +40,7 @@ function Search() {
         const fetchAPI = async () => {
             setLoading(true);
             const result = await searchService.search(debounced, 'less');
+
             setSearchResult(result);
 
             setLoading(false);
