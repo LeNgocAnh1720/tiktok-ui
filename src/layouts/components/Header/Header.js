@@ -1,5 +1,8 @@
-import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import {
     faCircleQuestion,
     faCoins,
@@ -10,20 +13,20 @@ import {
     faSignOut,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css';
 
 import config from '~/config';
-import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
-import Menu from '~/components/Popper/Menu/Menu';
-import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons/Icons';
-import Image from '~/components/Image/Image';
+import Menu from '~/components/Popper/Menu';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 import Search from '../Search/Search';
-import { Link } from 'react-router-dom';
+
+import classNames from 'classnames/bind';
+import styles from './Header.module.scss';
 
 const cx = classNames.bind(styles);
+
 const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faLanguage} />,
@@ -31,86 +34,6 @@ const MENU_ITEMS = [
         children: {
             title: 'Language',
             data: [
-                {
-                    type: 'language',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'language',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-                {
-                    type: 'language',
-                    code: 'sp',
-                    title: 'Spain',
-                },
-                {
-                    type: 'language',
-                    code: 'tl',
-                    title: 'ThaiLand',
-                },
-                {
-                    type: 'language',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'language',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-                {
-                    type: 'language',
-                    code: 'sp',
-                    title: 'Spain',
-                },
-                {
-                    type: 'language',
-                    code: 'tl',
-                    title: 'ThaiLand',
-                },
-                {
-                    type: 'language',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'language',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-                {
-                    type: 'language',
-                    code: 'sp',
-                    title: 'Spain',
-                },
-                {
-                    type: 'language',
-                    code: 'tl',
-                    title: 'ThaiLand',
-                },
-                {
-                    type: 'language',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'language',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-                {
-                    type: 'language',
-                    code: 'sp',
-                    title: 'Spain',
-                },
-                {
-                    type: 'language',
-                    code: 'tl',
-                    title: 'ThaiLand',
-                },
                 {
                     type: 'language',
                     code: 'en',
@@ -229,7 +152,7 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tiktok-obj/1663152791024641.jpeg?x-expires=1693814400&x-signature=0xjMeiXDICockT12h14J8fYDswc%3D"
+                                src="https://assets.manutd.com/AssetPicker/images/0/0/3/2/197240/Header-Logo1500994616801.png"
                                 alt="Le Ngoc Anh"
                                 fallBack="https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png"
                             />

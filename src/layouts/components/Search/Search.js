@@ -1,27 +1,28 @@
 import { useEffect, useRef, useState } from 'react';
-import * as searchService from '~/services/searchService';
-import classNames from 'classnames/bind';
-import styles from './Search.module.scss';
+import useDebounce from '~/hooks/useDebounce';
+
+import HeadlessTippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-import HeadlessTippy from '@tippyjs/react/headless';
+import * as searchService from '~/services/searchService';
 import { SearchIcon } from '~/components/Icons';
-
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
-import useDebounce from '~/hooks/useDebounce';
+
+import classNames from 'classnames/bind';
+import styles from './Search.module.scss';
 
 const cx = classNames.bind(styles);
 
 function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const debounced = useDebounce(searchValue, 500);
+    const debounceValue = useDebounce(searchValue, 500);
 
     const inputRef = useRef();
 
@@ -32,14 +33,14 @@ function Search() {
     };
 
     useEffect(() => {
-        if (!debounced.trim()) {
+        if (!debounceValue.trim()) {
             setSearchResult([]);
             return;
         }
 
         const fetchAPI = async () => {
             setLoading(true);
-            const result = await searchService.search(debounced, 'less');
+            const result = await searchService.search(debounceValue, 'less');
 
             setSearchResult(result);
 
@@ -47,7 +48,7 @@ function Search() {
         };
 
         fetchAPI();
-    }, [debounced]);
+    }, [debounceValue]);
 
     const handleHideResult = () => {
         setShowResult(false);

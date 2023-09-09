@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
-import styles from './Menu.module.scss';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+
+import classNames from 'classnames/bind';
+import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
 
