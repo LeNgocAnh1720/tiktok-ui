@@ -1,30 +1,47 @@
-import classNames from "classnames/bind";
-import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
+import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Button({ to, href, primary = false, outline = false, text= false, small = false, large = false, disabled = false, rounded = false, children, className = false, leftIcon = false, rightIcon = false, onClick, ...passProps }) {
-    let Comp = 'button'
+function Button({
+    to,
+    href,
+    primary = false,
+    outline = false,
+    text = false,
+    small = false,
+    large = false,
+    disabled = false,
+    rounded = false,
+    children,
+    className = false,
+    leftIcon = false,
+    rightIcon = false,
+    onClick,
+    ...passProps
+}) {
+    let Comp = 'button';
 
     const props = {
         onClick,
-        ...passProps
-    }
+        ...passProps,
+    };
 
     //Remove events listener when button is disabled
-    if(disabled) {
+    if (disabled) {
         Object.keys(props).forEach((key) => {
-            if(key.startsWith('on') && typeof props[key] === 'function'){
-                delete props[key]
+            if (key.startsWith('on') && typeof props[key] === 'function') {
+                delete props[key];
             }
-        })
+        });
     }
 
-    if(to){
+    if (to) {
         props.to = to;
         Comp = Link;
-    }else if(href){
+    } else if (href) {
         props.href = href;
         Comp = 'a';
     }
@@ -49,4 +66,20 @@ function Button({ to, href, primary = false, outline = false, text= false, small
     );
 }
 
+Button.propTypes = {
+    to: PropTypes.string,
+    href: PropTypes.string,
+    primary: PropTypes.bool,
+    outline: PropTypes.bool,
+    text: PropTypes.bool,
+    small: PropTypes.bool,
+    large: PropTypes.bool,
+    disabled: PropTypes.bool,
+    rounded: PropTypes.bool,
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+    leftIcon: PropTypes.node,
+    rightIcon: PropTypes.node,
+    onClick: PropTypes.func,
+};
 export default Button;
