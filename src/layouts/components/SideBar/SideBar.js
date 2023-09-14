@@ -1,4 +1,5 @@
 import Menu, { MenuItem } from './Menu';
+import SuggestedAccounts from '~/components/SuggestedAccounts';
 
 import config from '~/config';
 import {
@@ -28,6 +29,9 @@ function SideBar() {
                 />
                 <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} />
             </Menu>
+
+            <SuggestedAccounts label="Suggested Accounts" />
+            <SuggestedAccounts label="Following" />
         </aside>
     );
 }
